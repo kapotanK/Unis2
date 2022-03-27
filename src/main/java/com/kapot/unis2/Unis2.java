@@ -18,6 +18,7 @@ public class Unis2 extends Application {
 
     /*
     TODO: file writing dont resets old file
+    TODO: remove D: on file dialog (works only here)
      */
 
     public static final String CRYPTOFILE_SUFFIX = ".uniscrypt";

@@ -11,6 +11,7 @@ import javafx.scene.control.TextInputControl;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -39,7 +40,7 @@ public class CipherOutputWriter {
             if (input.getCipher().isByteCipher() && mode == AbstractCipher.Mode.ENCRYPT)
                 outText = ByteArrayUtil.bytesToHex(outputWrap.getOutputData());
             else
-                outText = new String(outputWrap.getOutputData());
+                outText = new String(outputWrap.getOutputData(), StandardCharsets.UTF_8);
             getPrintoutUIComponent(mode).setText(outText);
             getPrintoutUIComponent(mode).requestFocus();
         }

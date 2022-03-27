@@ -227,7 +227,7 @@ public class CipherSceneController {
             }
             fc.setInitialDirectory(initDir);
         } else {
-            fc.setInitialDirectory(new File("D:"));
+            fc.setInitialDirectory(new File("."));
         }
         if (forDecrypt)
             fc.getExtensionFilters().add(
