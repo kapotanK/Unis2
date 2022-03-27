@@ -1,0 +1,7 @@
+.cipherChooser {
+    -fx-font-weight: bold;
+    -fx-font-size: 17px;
+}
+.combo-box .list-cell {
+    -fx-alignment: center;
+}
