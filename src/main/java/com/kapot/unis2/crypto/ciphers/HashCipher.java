@@ -1,12 +1,9 @@
 package com.kapot.unis2.crypto.ciphers;
 
-import com.kapot.unis2.crypto.util.ByteArrayUtil;
-import com.kapot.unis2.crypto.util.HashUtil;
 import com.kapot.unis2.exceptions.CryptorException;
 import com.kapot.unis2.ui.wrappers.AdditionalArgsWrapper;
 import com.kapot.unis2.ui.wrappers.CipherInputWrapper;
 
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -20,7 +17,10 @@ public class HashCipher extends AbstractCipher {
                 false,
                 true,
                 true,
-                Arrays.asList("Generates hashsum of input data by selected algorithm"),
+                Arrays.asList(
+                        "Generates hashsum of input data by selected algorithm",
+                        "Hashsum is (almost always) unique for every input, and similar to equal inputs."
+                ),
                 Arrays.asList(),
                 Arrays.asList(
                         "-h <algorithm>  - hashing algorithm to use. Default is SHA-256"

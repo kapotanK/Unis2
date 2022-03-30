@@ -76,6 +76,8 @@ public class CipherSceneController {
     public Button dcBtn;
     public Label dcStatus;
 
+    public List<Tooltip> tooltips;
+
     protected DailyKeygen keygen;
     protected CipherType currentCipherType;
 
@@ -145,6 +147,7 @@ public class CipherSceneController {
         setTooltipState(dcAdditsTooltip, supportAddits, additTip);
         setFilemodeState(supportFiles);
 
+        setEncryptStatus("OK", TextColor.GREEN);
         setDecryptorState(supportDecrypt);
 
         // Reset out areas
@@ -380,6 +383,13 @@ public class CipherSceneController {
     // Controller initialization
     public void init(Unis2 appInstance) { //TODO: disable tooltip autohide
         this.appInstance = appInstance;
+        this.tooltips = Arrays.asList(
+                cipherTooltip,
+                ecKeyTooltip,
+                ecAdditsTooltip,
+                dcKeyTooltip,
+                dcAdditsTooltip
+        );
 
         // Set up keygen
         keygen = new DailyKeygen("");
@@ -413,6 +423,13 @@ public class CipherSceneController {
 
         // Apply first cipher to scene
         changeCipher(CipherType.values()[0]);
+
+        // Modify tooltips
+        tooltips.forEach(tt -> tt.showingProperty().addListener(e -> {
+            if (tt.getText().isEmpty()) {
+                tt.hide();
+            }
+        }));
 
         // Initialize keybinds
         initKeybinds();

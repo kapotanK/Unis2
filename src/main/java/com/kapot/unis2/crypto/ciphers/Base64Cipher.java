@@ -4,7 +4,6 @@ import com.kapot.unis2.exceptions.CryptorException;
 import com.kapot.unis2.ui.wrappers.AdditionalArgsWrapper;
 import com.kapot.unis2.ui.wrappers.CipherInputWrapper;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Base64;
 
@@ -17,7 +16,9 @@ public class Base64Cipher extends AbstractCipher {
                 true,
                 true,
                 false,
-                Arrays.asList(),
+                Arrays.asList(
+                        "Used to transform unicode/bytes to ASCII."
+                ),
                 Arrays.asList(),
                 Arrays.asList()
         );

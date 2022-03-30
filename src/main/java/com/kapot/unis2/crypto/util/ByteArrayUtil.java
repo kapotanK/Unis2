@@ -38,16 +38,17 @@ public class ByteArrayUtil {
     }
 
 
-    public static String bytesToHex(byte[] hash) {
-        StringBuilder hexString = new StringBuilder(2 * hash.length);
-        for (int i = 0; i < hash.length; i++) {
-            String hex = Integer.toHexString(0xff & hash[i]);
+    public static String bytesToHex(byte[] bytes) {
+        StringBuilder hexString = new StringBuilder(2 * bytes.length);
+        for (int i = 0; i < bytes.length; i++) {
+            String hex = Integer.toHexString(0xff & bytes[i]);
             if (hex.length() == 1) {
                 hexString.append('0');
             }
             hexString.append(hex);
         }
         return hexString.toString();
+        //return String.format("%x", new BigInteger(bytes)); //Sometimes gives invalid hex
     }
     public static byte[] hexToBytes(String s) {
         int len = s.length();

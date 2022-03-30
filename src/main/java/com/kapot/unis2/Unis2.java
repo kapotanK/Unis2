@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.InputStream;
 import java.net.URL;
 
@@ -18,7 +17,6 @@ public class Unis2 extends Application {
 
     /*
     TODO: file writing dont resets old file
-    TODO: remove D: on file dialog (works only here)
      */
 
     public static final String CRYPTOFILE_SUFFIX = ".uniscrypt";

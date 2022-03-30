@@ -1,7 +1,5 @@
 package com.kapot.unis2.crypto.ciphers;
 
-import com.kapot.unis2.crypto.util.ByteArrayUtil;
-import com.kapot.unis2.crypto.util.HashUtil;
 import com.kapot.unis2.exceptions.CryptorException;
 import com.kapot.unis2.ui.wrappers.AdditionalArgsWrapper;
 import com.kapot.unis2.ui.wrappers.CipherInputWrapper;
@@ -11,7 +9,6 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.MessageDigest;
@@ -27,15 +24,19 @@ public class AESCipher extends AbstractCipher {
                 true,
                 true,
                 true,
-                Arrays.asList(""), //TODO
-                Arrays.asList("Any string"),
+                Arrays.asList(
+                        "At this moment it is the most safe cipher in Unis.",
+                        "Can crypt UTF-8 text & any files (>500MB files is not recommended)",
+                        "Uses SHA-256 hashsum of keystring as cipher key, returns result bytes to file (filemode) or as hex string."
+                ),
+                Arrays.asList("Any UTF-8 string"),
                 Arrays.asList()
         );
     }
 
 
     @Override
-    public byte[] encrypt(CipherInputWrapper input, AdditionalArgsWrapper addits) {
+    public byte[] encrypt(CipherInputWrapper input, AdditionalArgsWrapper addits) { //TODO: partial crypting for large files
         try {
             Key k = createKey(input.getKey());
             Cipher c = getCipher(Cipher.ENCRYPT_MODE, k);
